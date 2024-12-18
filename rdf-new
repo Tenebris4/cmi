@@ -2,13 +2,13 @@
  "cells": [
   {
    "cell_type": "markdown",
-   "id": "dc4b188d",
+   "id": "c2d8dfab",
    "metadata": {
     "papermill": {
-     "duration": 0.001956,
-     "end_time": "2024-12-18T08:58:45.364418",
+     "duration": 0.002833,
+     "end_time": "2024-12-18T09:01:23.906754",
      "exception": false,
-     "start_time": "2024-12-18T08:58:45.362462",
+     "start_time": "2024-12-18T09:01:23.903921",
      "status": "completed"
     },
     "tags": []
@@ -21,18 +21,18 @@
     "* Loại bỏ những giá trị quá lớn INF\n",
     "\n",
     "**Kết quả thu được**\n",
-    "* Submission với param(0.378): **0.373**"
+    "* Submission với param(0.378): ****"
    ]
   },
   {
    "cell_type": "markdown",
-   "id": "e85f9ad9",
+   "id": "312fa083",
    "metadata": {
     "papermill": {
-     "duration": 0.001475,
-     "end_time": "2024-12-18T08:58:45.368020",
+     "duration": 0.002121,
+     "end_time": "2024-12-18T09:01:23.911531",
      "exception": false,
-     "start_time": "2024-12-18T08:58:45.366545",
+     "start_time": "2024-12-18T09:01:23.909410",
      "status": "completed"
     },
     "tags": []
@@ -44,19 +44,19 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "81826f46",
+   "id": "ca6e7933",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-12-18T08:58:45.372207Z",
-     "iopub.status.busy": "2024-12-18T08:58:45.371905Z",
-     "iopub.status.idle": "2024-12-18T08:58:57.829976Z",
-     "shell.execute_reply": "2024-12-18T08:58:57.829244Z"
+     "iopub.execute_input": "2024-12-18T09:01:23.918278Z",
+     "iopub.status.busy": "2024-12-18T09:01:23.917712Z",
+     "iopub.status.idle": "2024-12-18T09:01:42.697749Z",
+     "shell.execute_reply": "2024-12-18T09:01:42.696292Z"
     },
     "papermill": {
-     "duration": 12.477826,
-     "end_time": "2024-12-18T08:58:57.847255",
+     "duration": 18.786624,
+     "end_time": "2024-12-18T09:01:42.700351",
      "exception": false,
-     "start_time": "2024-12-18T08:58:45.369429",
+     "start_time": "2024-12-18T09:01:23.913727",
      "status": "completed"
     },
     "tags": []
@@ -178,13 +178,13 @@
   },
   {
    "cell_type": "markdown",
-   "id": "8f0f57b4",
+   "id": "808f95f6",
    "metadata": {
     "papermill": {
-     "duration": 0.030679,
-     "end_time": "2024-12-18T08:58:57.908931",
+     "duration": 0.04789,
+     "end_time": "2024-12-18T09:01:42.796305",
      "exception": false,
-     "start_time": "2024-12-18T08:58:57.878252",
+     "start_time": "2024-12-18T09:01:42.748415",
      "status": "completed"
     },
     "tags": []
@@ -198,19 +198,19 @@
   {
    "cell_type": "code",
    "execution_count": 2,
-   "id": "dddb6d27",
+   "id": "81b78991",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-12-18T08:58:57.966585Z",
-     "iopub.status.busy": "2024-12-18T08:58:57.965642Z",
-     "iopub.status.idle": "2024-12-18T09:00:17.815153Z",
-     "shell.execute_reply": "2024-12-18T09:00:17.814023Z"
+     "iopub.execute_input": "2024-12-18T09:01:42.888431Z",
+     "iopub.status.busy": "2024-12-18T09:01:42.887754Z",
+     "iopub.status.idle": "2024-12-18T09:03:26.889742Z",
+     "shell.execute_reply": "2024-12-18T09:03:26.888479Z"
     },
     "papermill": {
-     "duration": 79.880058,
-     "end_time": "2024-12-18T09:00:17.816684",
+     "duration": 104.05251,
+     "end_time": "2024-12-18T09:03:26.892459",
      "exception": false,
-     "start_time": "2024-12-18T08:58:57.936626",
+     "start_time": "2024-12-18T09:01:42.839949",
      "status": "completed"
     },
     "tags": []
@@ -220,16 +220,16 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Cross-Validation QWK: 0.3869 ± 0.0234\n"
+      "Cross-Validation QWK: 0.3910 ± 0.0248\n"
      ]
     },
     {
      "data": {
       "text/plain": [
        "sii\n",
-       "0    10\n",
-       "2     6\n",
-       "1     4\n",
+       "0    9\n",
+       "1    6\n",
+       "2    5\n",
        "Name: count, dtype: int64"
       ]
      },
@@ -297,16 +297,6 @@
     "    \n",
     "# Features combination\n",
     "def feature_combination(df):\n",
-    "    season_cols = [col for col in df.columns if 'Season' in col]\n",
-    "    df = df.drop(season_cols, axis=1)\n",
-    "    df['Age_and_BMI'] = df['Basic_Demos-Age'] * df['Physical-BMI']\n",
-    "    df['BP_Difference'] = df['Physical-Systolic_BP'] - df['Physical-Diastolic_BP']\n",
-    "    df['BMI_Per_Weight'] = df['Physical-BMI'] / df['Physical-Weight']\n",
-    "    df['Internet_Hours_Age'] = df['PreInt_EduHx-computerinternet_hoursday'] * df['Basic_Demos-Age']\n",
-    "    df['BMI_Internet_Hours'] = df['Physical-BMI'] * df['PreInt_EduHx-computerinternet_hoursday']\n",
-    "    df['BMI_Height_Ratio'] = df['Physical-BMI'] / df['Physical-Height']\n",
-    "    df['HeartRate_to_Weight'] = df['Physical-HeartRate'] / df['Physical-Weight']\n",
-    "    df['Frame_to_BMI'] = df['BIA-BIA_Frame_num'] / df['Physical-BMI']\n",
     "    df.replace([np.inf, -np.inf], np.nan, inplace=True)\n",
     "    return df\n",
     "\n",
@@ -447,14 +437,14 @@
   },
   "papermill": {
    "default_parameters": {},
-   "duration": 95.659778,
-   "end_time": "2024-12-18T09:00:18.866919",
+   "duration": 127.952717,
+   "end_time": "2024-12-18T09:03:28.061832",
    "environment_variables": {},
    "exception": null,
    "input_path": "__notebook__.ipynb",
    "output_path": "__notebook__.ipynb",
    "parameters": {},
-   "start_time": "2024-12-18T08:58:43.207141",
+   "start_time": "2024-12-18T09:01:20.109115",
    "version": "2.6.0"
   }
  },
