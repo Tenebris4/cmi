@@ -2,13 +2,13 @@
  "cells": [
   {
    "cell_type": "markdown",
-   "id": "4ae784b0",
+   "id": "95b971b3",
    "metadata": {
     "papermill": {
-     "duration": 0.002788,
-     "end_time": "2024-12-18T06:54:20.783261",
+     "duration": 0.002733,
+     "end_time": "2024-12-18T06:56:55.024647",
      "exception": false,
-     "start_time": "2024-12-18T06:54:20.780473",
+     "start_time": "2024-12-18T06:56:55.021914",
      "status": "completed"
     },
     "tags": []
@@ -27,13 +27,13 @@
   },
   {
    "cell_type": "markdown",
-   "id": "3669f0a0",
+   "id": "642369f7",
    "metadata": {
     "papermill": {
-     "duration": 0.00174,
-     "end_time": "2024-12-18T06:54:20.787542",
+     "duration": 0.0018,
+     "end_time": "2024-12-18T06:56:55.028843",
      "exception": false,
-     "start_time": "2024-12-18T06:54:20.785802",
+     "start_time": "2024-12-18T06:56:55.027043",
      "status": "completed"
     },
     "tags": []
@@ -45,19 +45,19 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "a38d0e93",
+   "id": "c431c722",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-12-18T06:54:20.793430Z",
-     "iopub.status.busy": "2024-12-18T06:54:20.793059Z",
-     "iopub.status.idle": "2024-12-18T06:54:37.099938Z",
-     "shell.execute_reply": "2024-12-18T06:54:37.098949Z"
+     "iopub.execute_input": "2024-12-18T06:56:55.034604Z",
+     "iopub.status.busy": "2024-12-18T06:56:55.034219Z",
+     "iopub.status.idle": "2024-12-18T06:57:11.500387Z",
+     "shell.execute_reply": "2024-12-18T06:57:11.499253Z"
     },
     "papermill": {
-     "duration": 16.346001,
-     "end_time": "2024-12-18T06:54:37.135628",
+     "duration": 16.504841,
+     "end_time": "2024-12-18T06:57:11.535686",
      "exception": false,
-     "start_time": "2024-12-18T06:54:20.789627",
+     "start_time": "2024-12-18T06:56:55.030845",
      "status": "completed"
     },
     "tags": []
@@ -179,13 +179,13 @@
   },
   {
    "cell_type": "markdown",
-   "id": "e4cacab4",
+   "id": "e56311b1",
    "metadata": {
     "papermill": {
-     "duration": 0.045393,
-     "end_time": "2024-12-18T06:54:37.226587",
+     "duration": 0.04838,
+     "end_time": "2024-12-18T06:57:11.632075",
      "exception": false,
-     "start_time": "2024-12-18T06:54:37.181194",
+     "start_time": "2024-12-18T06:57:11.583695",
      "status": "completed"
     },
     "tags": []
@@ -199,19 +199,19 @@
   {
    "cell_type": "code",
    "execution_count": 2,
-   "id": "d8efc085",
+   "id": "2bfa98f2",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-12-18T06:54:37.313135Z",
-     "iopub.status.busy": "2024-12-18T06:54:37.312538Z",
-     "iopub.status.idle": "2024-12-18T06:54:58.281601Z",
-     "shell.execute_reply": "2024-12-18T06:54:58.280361Z"
+     "iopub.execute_input": "2024-12-18T06:57:11.724203Z",
+     "iopub.status.busy": "2024-12-18T06:57:11.723746Z",
+     "iopub.status.idle": "2024-12-18T06:57:32.751311Z",
+     "shell.execute_reply": "2024-12-18T06:57:32.750238Z"
     },
     "papermill": {
-     "duration": 21.014927,
-     "end_time": "2024-12-18T06:54:58.283730",
+     "duration": 21.076557,
+     "end_time": "2024-12-18T06:57:32.753340",
      "exception": false,
-     "start_time": "2024-12-18T06:54:37.268803",
+     "start_time": "2024-12-18T06:57:11.676783",
      "status": "completed"
     },
     "tags": []
@@ -397,7 +397,7 @@
     "    'sii': test_predictions\n",
     "})\n",
     "\n",
-    "# submission.to_csv('submission.csv', index=False)\n",
+    "submission.to_csv('submission.csv', index=False)\n",
     "submission['sii'].value_counts()\n"
    ]
   }
@@ -437,14 +437,14 @@
   },
   "papermill": {
    "default_parameters": {},
-   "duration": 40.980262,
-   "end_time": "2024-12-18T06:54:59.247942",
+   "duration": 41.400577,
+   "end_time": "2024-12-18T06:57:33.819968",
    "environment_variables": {},
    "exception": null,
    "input_path": "__notebook__.ipynb",
    "output_path": "__notebook__.ipynb",
    "parameters": {},
-   "start_time": "2024-12-18T06:54:18.267680",
+   "start_time": "2024-12-18T06:56:52.419391",
    "version": "2.6.0"
   }
  },
