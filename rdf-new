@@ -2,13 +2,13 @@
  "cells": [
   {
    "cell_type": "markdown",
-   "id": "95b971b3",
+   "id": "ba1aa9f3",
    "metadata": {
     "papermill": {
-     "duration": 0.002733,
-     "end_time": "2024-12-18T06:56:55.024647",
+     "duration": 0.002632,
+     "end_time": "2024-12-18T07:03:46.530512",
      "exception": false,
-     "start_time": "2024-12-18T06:56:55.021914",
+     "start_time": "2024-12-18T07:03:46.527880",
      "status": "completed"
     },
     "tags": []
@@ -21,19 +21,22 @@
     "  - Thêm các mức độ ưu tiên (Chưa làm)\n",
     "* Features selection: loại bỏ những cột mà có quá nhiều null (>= 70%) và tập trung vào các features có tương quan mạnh vơi sii\n",
     "* Sử dụng lại siêu tham số từ version trước với acc = 0.378\n",
+    "* Sử dụng lại siêu tham số từ version trước với acc = 0.362\n",
     "\n",
-    "**Kết quả thu được**\n"
+    "**Kết quả thu được**\n",
+    "* Submission với param(0.378): **0.381**\n",
+    "* Submission với param(0.362): ****\n"
    ]
   },
   {
    "cell_type": "markdown",
-   "id": "642369f7",
+   "id": "fd17f520",
    "metadata": {
     "papermill": {
-     "duration": 0.0018,
-     "end_time": "2024-12-18T06:56:55.028843",
+     "duration": 0.001637,
+     "end_time": "2024-12-18T07:03:46.534494",
      "exception": false,
-     "start_time": "2024-12-18T06:56:55.027043",
+     "start_time": "2024-12-18T07:03:46.532857",
      "status": "completed"
     },
     "tags": []
@@ -45,19 +48,19 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "c431c722",
+   "id": "2ba51f15",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-12-18T06:56:55.034604Z",
-     "iopub.status.busy": "2024-12-18T06:56:55.034219Z",
-     "iopub.status.idle": "2024-12-18T06:57:11.500387Z",
-     "shell.execute_reply": "2024-12-18T06:57:11.499253Z"
+     "iopub.execute_input": "2024-12-18T07:03:46.540296Z",
+     "iopub.status.busy": "2024-12-18T07:03:46.539602Z",
+     "iopub.status.idle": "2024-12-18T07:04:02.694941Z",
+     "shell.execute_reply": "2024-12-18T07:04:02.694088Z"
     },
     "papermill": {
-     "duration": 16.504841,
-     "end_time": "2024-12-18T06:57:11.535686",
+     "duration": 16.192713,
+     "end_time": "2024-12-18T07:04:02.729022",
      "exception": false,
-     "start_time": "2024-12-18T06:56:55.030845",
+     "start_time": "2024-12-18T07:03:46.536309",
      "status": "completed"
     },
     "tags": []
@@ -179,13 +182,13 @@
   },
   {
    "cell_type": "markdown",
-   "id": "e56311b1",
+   "id": "e59a320e",
    "metadata": {
     "papermill": {
-     "duration": 0.04838,
-     "end_time": "2024-12-18T06:57:11.632075",
+     "duration": 0.042519,
+     "end_time": "2024-12-18T07:04:02.815394",
      "exception": false,
-     "start_time": "2024-12-18T06:57:11.583695",
+     "start_time": "2024-12-18T07:04:02.772875",
      "status": "completed"
     },
     "tags": []
@@ -199,19 +202,19 @@
   {
    "cell_type": "code",
    "execution_count": 2,
-   "id": "2bfa98f2",
+   "id": "ae36f2e1",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-12-18T06:57:11.724203Z",
-     "iopub.status.busy": "2024-12-18T06:57:11.723746Z",
-     "iopub.status.idle": "2024-12-18T06:57:32.751311Z",
-     "shell.execute_reply": "2024-12-18T06:57:32.750238Z"
+     "iopub.execute_input": "2024-12-18T07:04:02.901887Z",
+     "iopub.status.busy": "2024-12-18T07:04:02.901517Z",
+     "iopub.status.idle": "2024-12-18T07:04:20.466149Z",
+     "shell.execute_reply": "2024-12-18T07:04:20.465129Z"
     },
     "papermill": {
-     "duration": 21.076557,
-     "end_time": "2024-12-18T06:57:32.753340",
+     "duration": 17.610697,
+     "end_time": "2024-12-18T07:04:20.468102",
      "exception": false,
-     "start_time": "2024-12-18T06:57:11.676783",
+     "start_time": "2024-12-18T07:04:02.857405",
      "status": "completed"
     },
     "tags": []
@@ -221,7 +224,7 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Training Accuracy: 99.09%\n"
+      "Training Accuracy: 99.74%\n"
      ]
     },
     {
@@ -318,22 +321,22 @@
     "    ])\n",
     "\n",
     "#Sử dụng lại bộ siêu tham số của 0.378\n",
-    "best_params = { 'bootstrap': False, \n",
-    "               'criterion': 'entropy', \n",
-    "               'max_depth': 40, \n",
-    "               'max_features': 'sqrt', \n",
-    "               'min_samples_leaf': 1, \n",
-    "               'min_samples_split': 15, \n",
-    "               'n_estimators': 370 }\n",
-    "\n",
-    "#Sử dụng lại bộ siêu tham số của 0.362\n",
-    "# best_params = { 'bootstrap': True, \n",
+    "# best_params = { 'bootstrap': False, \n",
     "#                'criterion': 'entropy', \n",
-    "#                'max_depth': 35, \n",
+    "#                'max_depth': 40, \n",
     "#                'max_features': 'sqrt', \n",
     "#                'min_samples_leaf': 1, \n",
-    "#                'min_samples_split': 5, \n",
-    "#                'n_estimators': 486 }\n",
+    "#                'min_samples_split': 15, \n",
+    "#                'n_estimators': 370 }\n",
+    "\n",
+    "#Sử dụng lại bộ siêu tham số của 0.362\n",
+    "best_params = { 'bootstrap': True, \n",
+    "               'criterion': 'entropy', \n",
+    "               'max_depth': 35, \n",
+    "               'max_features': 'sqrt', \n",
+    "               'min_samples_leaf': 1, \n",
+    "               'min_samples_split': 5, \n",
+    "               'n_estimators': 486 }\n",
     "\n",
     "# Kết hợp SMOTE và Undersampling trong pipeline\n",
     "pipeline = ImbPipeline([\n",
@@ -437,14 +440,14 @@
   },
   "papermill": {
    "default_parameters": {},
-   "duration": 41.400577,
-   "end_time": "2024-12-18T06:57:33.819968",
+   "duration": 37.642793,
+   "end_time": "2024-12-18T07:04:21.530965",
    "environment_variables": {},
    "exception": null,
    "input_path": "__notebook__.ipynb",
    "output_path": "__notebook__.ipynb",
    "parameters": {},
-   "start_time": "2024-12-18T06:56:52.419391",
+   "start_time": "2024-12-18T07:03:43.888172",
    "version": "2.6.0"
   }
  },
