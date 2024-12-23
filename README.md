@@ -2,7 +2,7 @@
 
 ## Phase 1: Random Forest  
 
-### Reason for Choosing the Model  
+### Reason for Choosing the Model 🥸 
 
 Our team selected the Random Forest model based on three main factors:  
 
@@ -20,9 +20,9 @@ Our team selected the Random Forest model based on three main factors:
    - Label `3.0 (SEVERE)` comprises less than 2% of the data.  
    Random Forest’s bagging ensemble mechanism helps mitigate overfitting and performs well in scenarios with imbalanced data.  
 
-### Experimentation and Results  
+### Experimentation and Results  👨‍💻
 
-#### Version 1: Initial Approach  
+#### Version 1: Initial Approach  🚀
 
 1. **Preprocessing**  
    - Missing values were handled using `SimpleImputer`.  
@@ -39,7 +39,7 @@ Our team selected the Random Forest model based on three main factors:
 
 Our team recognized that the low performance was likely due to overly simple implementation methods and suspected that imputing missing values for the `sii` target label was inappropriate.  
 
-#### Version 2: Enhanced Approach  
+#### Version 2: Enhanced Approach  🤓
 
 1. **Improved Hyperparameter Tuning and Metrics**  
    - Tried alternative hyperparameter tuning methods:  
