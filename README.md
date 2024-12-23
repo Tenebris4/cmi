@@ -20,7 +20,7 @@ Our team selected the Random Forest model based on three main factors:
    - Label `3.0 (SEVERE)` comprises less than 2% of the data.  
    Random Forest’s bagging ensemble mechanism helps mitigate overfitting and performs well in scenarios with imbalanced data.  
 
-### Experimentation and Results  👨‍💻
+### Experimentation and Results 
 
 #### Version 1: Initial Approach  🚀
 
@@ -69,3 +69,106 @@ We aim to refine the model further by exploring additional techniques, including
 - Advanced imputation strategies for missing values.  
 - Feature engineering to capture complex relationships in the data.  
 - Implementation of ensemble methods beyond Random Forest for improved performance.  
+
+## Phase 2: Gradient Boosting
+
+### Version 1: LightGBM
+#### LightBGM
+
+link: https://lightgbm.readthedocs.io/en/stable/
+
+![](assets/lightbgm.png)
+
+##### Reason for Choosing the Model
+
+Since Random Forest did not meet our expectations, we switched to Gradient Boosting. We started with LightGBM due to its 
+- Fast training speed 
+- Superior handling of imbalanced data through boosting instead of bagging. 
+- Histogram-based learning and leaf-wise splitting to reduce computations while maintaining accuracy. 
+
+**The results were impressive, with a submission score of 0.4.** 
+
+### Version 2: Hyperparameter tuning
+
+#### Feature Engineering
+
+Significant correlations between health-related features and age. These correlations indicated that age played a critical role in influencing the health metrics within our dataset.
+
+``` python
+def feature_engineering(df):
+    # 1. Interaction Features:
+    df['Age_and_BMI'] = df['Basic_Demos-Age'] * df['Physical-BMI']
+    df['BP_Difference'] = df['Physical-Systolic_BP'] - df['Physical-Diastolic_BP']
+    # 2. Aggregated Features:
+    df['Avg_BMI'] = df.groupby('Physical-Season')['Physical-BMI'].transform('mean')
+    df['BMI_Per_Weight'] = df['Physical-BMI'] / df['Physical-Weight']
+    
+    # 3. Temporal Features:
+    df['Seasonal_BP'] = df.groupby('Physical-Season')['Physical-Diastolic_BP'].transform('mean')
+    # 5. Ratios and Proportions:
+    df['BMI_Height_Ratio'] = df['Physical-BMI'] / df['Physical-Height']
+    df['HeartRate_to_Weight'] = df['Physical-HeartRate'] / df['Physical-Weight']
+
+    # 6. Health Metrics:
+    df['Frame_to_BMI'] = df['BIA-BIA_Frame_num'] / df['Physical-BMI']
+    
+    return df
+```
+
+**Submission score: 0.439.** 
+
+
+### Version 3: Ensemble Learning
+
+Combination of multiple gradient boosting models: **LightGBM**, **XGBoost**, **CatBoost** using VotingRegressor
+
+#### XGBoost
+
+link: https://xgboost.readthedocs.io/en/stable/
+
+XGBoost, which stands for Extreme Gradient Boosting, is a scalable, distributed gradient-boosted decision tree (GBDT) machine learning library. It provides parallel tree boosting and is the leading machine learning library for regression, classification, and ranking problems.
+
+![](assets/xgboost.png)
+
+#### CatBoost
+
+link: https://catboost.ai/
+
+Catboost is a variant of gradient boosting that can handle both categorical and numerical features. It does not require any feature encodings techniques like One-Hot Encoder or Label Encoder to convert categorical features into numerical features. It also uses an algorithm called symmetric weighted quantile sketch(SWQS) which automatically handles the missing values in the dataset to reduce overfitting and improve the overall performance of the dataset. 
+
+![](assets/catboost.png)
+
+#### Why we chose these models
+
+1. Leverage the Advantages of Each Model
+- **LightGBM**: Fast training and prediction speed, particularly effective with large datasets.
+- **XGBoost**: High customizability and robust performance on various types of data.
+- **CatBoost**: Excellent handling of categorical data with minimal preprocessing required.
+
+2. Reduce Bias and Variance
+- A voting ensemble reduces bias and variance by combining predictions from multiple models.
+- Leveraging the unique features and strengths of each model makes the overall ensemble more stable and accurate.
+
+3. Improve Overall Accuracy
+- Combining **LightGBM**, **XGBoost**, and **CatBoost** capitalizes on the individual strengths of each model.
+- This results in higher overall accuracy compared to using a single model.
+
+4. Increase Prediction Reliability
+- Using multiple models reduces the likelihood of individual model errors.
+- When models agree or produce similar results, the reliability of predictions increases, minimizing the impact of errors from a single model.
+
+5. Optimize for Different Types of Data
+- The data exhibits a mix of numerical and categorical features:
+  - **CatBoost** excels at handling categorical variables.
+  - **LightGBM** and **XGBoost** are highly effective with numerical data and can optimize well for large datasets.
+- Using all three models ensures robust handling of diverse data types, especially in the context of the problem.
+
+#### VotingRegressor
+link: https://scikit-learn.org/1.5/modules/generated/sklearn.ensemble.VotingRegressor.html
+
+A voting regressor is an ensemble meta-estimator that fits several base regressors, each on the whole dataset. Then it averages the individual predictions to form a final prediction.
+
+![](assets/voting_regressor.png)
+
+### Final Results
+**Result: 0.45** 
