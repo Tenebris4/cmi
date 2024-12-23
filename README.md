@@ -1,4 +1,4 @@
-# Random Forest Model for Ordered Classification  
+# Process Report
 
 ## Phase 1: Random Forest  
 
@@ -14,7 +14,9 @@ Our team selected the Random Forest model based on three main factors:
 
 3. **Robustness to Missing and Imbalanced Data**  
    The dataset contains significant missing values and an imbalanced distribution of the target label `sii`:  
-   - Label `0.0 (NONE)` accounts for over 50% of the data.  
+   - Label `0.0 (NONE)` accounts for over 50% of the data.
+   - Label `1.0 (MILD)` accounts for over 26 of the data.
+   - Label `2.0 (MODERATE)` accounts for over 13% of the data. 
    - Label `3.0 (SEVERE)` comprises less than 2% of the data.  
    Random Forest’s bagging ensemble mechanism helps mitigate overfitting and performs well in scenarios with imbalanced data.  
 
@@ -33,7 +35,7 @@ Our team selected the Random Forest model based on three main factors:
    - Hyperparameters were tuned using a simple **Grid Search**, and evaluation was based on **accuracy**.  
 
 **Result**:  
-- **Accuracy**: **0.216**  
+- <span style="color:orange">**Accuracy**: **0.216**</span>
 
 Our team recognized that the low performance was likely due to overly simple implementation methods and suspected that imputing missing values for the `sii` target label was inappropriate.  
 
@@ -41,8 +43,8 @@ Our team recognized that the low performance was likely due to overly simple imp
 
 1. **Improved Hyperparameter Tuning and Metrics**  
    - Tried alternative hyperparameter tuning methods:  
-     - **Random Search**: Achieved **F1_weighted = 0.229**  
-     - **Bayesian Optimization**: Achieved **F1_weighted = 0.240**  
+     - **Random Search**: Achieved <span style="color:orange">**F1_weighted = 0.229**</span>  
+     - **Bayesian Optimization**: Achieved <span style="color:orange">**F1_weighted = 0.240**</span>  
    - Changed the evaluation metric to **F1_weighted** instead of accuracy. F1_score provides a better balance between precision and recall, which is crucial given the class imbalance.  
 
 2. **Alignment with Competition Metric**  
@@ -55,9 +57,9 @@ Our team recognized that the low performance was likely due to overly simple imp
    - **Combination of SMOTE and Undersampling**: Balanced both minority and majority classes.  
 
 **Results**:  
-- **Undersampling**: **QWK = 0.290**  
-- **SMOTE**: **QWK = 0.381**  
-- **Combination of SMOTE and Undersampling**: **QWK = 0.377**  
+- **Undersampling**: <span style="color:orange">**Submit score = 0.290**</span>  
+- **SMOTE**: <span style="color:orange">**Submit score = 0.381**</span>
+- **Combination of SMOTE and Undersampling**: <span style="color:orange">**Submit score = 0.377**</span>
 
 Using **SMOTE** significantly improved the score. The improvement can be attributed to better representation of the minority class (label `3.0`), which constituted less than 2% of the dataset. By increasing the representation of this class, the model could learn its patterns more effectively.  
 
