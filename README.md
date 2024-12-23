@@ -20,6 +20,7 @@ Our team selected the Random Forest model based on three main factors:
    - Label `3.0 (SEVERE)` comprises less than 2% of the data.  
    Random Forest’s bagging ensemble mechanism helps mitigate overfitting and performs well in scenarios with imbalanced data.  
 
+![](assets/missing_values.png)
 ### Experimentation and Results 
 
 #### Version 1: Initial Approach  🚀
